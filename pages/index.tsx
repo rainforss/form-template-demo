@@ -15,21 +15,36 @@ const Home: NextPage = () => {
       <Heading as="h1" textAlign="center" mb={64} fontSize="4rem" color="white">
         Marketing Form Demo
       </Heading>
-      <Link href="/form-by-designer-canvas" passHref>
-        <Button as="a" variant="link" py={4} color="#ccc" fontSize="1.25rem">
-          Designer Canvas Form
-        </Button>
-      </Link>
-      <Link href="/form-by-custom-html" passHref>
-        <Button as="a" variant="link" py={4} color="#ccc" fontSize="1.25rem">
-          Custom HTML/CSS Form
-        </Button>
-      </Link>
-      <Link href="/form-by-custom-designer-control" passHref>
-        <Button as="a" variant="link" py={4} color="#ccc" fontSize="1.25rem">
-          Custom Designer Control Form
-        </Button>
-      </Link>
+      <Button
+        as="a"
+        href="/form-by-designer-canvas"
+        variant="link"
+        py={4}
+        color="#ccc"
+        fontSize="1.25rem"
+      >
+        Designer Canvas Form
+      </Button>
+      <Button
+        as="a"
+        href="/form-by-custom-html"
+        variant="link"
+        py={4}
+        color="#ccc"
+        fontSize="1.25rem"
+      >
+        Custom HTML/CSS Form
+      </Button>
+      <Button
+        as="a"
+        href="/form-by-custom-designer-control"
+        variant="link"
+        py={4}
+        color="#ccc"
+        fontSize="1.25rem"
+      >
+        Custom Designer Control Form
+      </Button>
     </Box>
   );
 };
