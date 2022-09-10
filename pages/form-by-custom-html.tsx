@@ -14,10 +14,8 @@ const FormByCustomHtml: React.FunctionComponent<
       bg="linear-gradient(to top right, #548D9A 0%, #404040 100%)"
     >
       <Box w="30%" h="80vh" bg="white" borderRadius="10px" p="2rem">
-        <div data-form-block-id="0f899a43-b130-ed11-9db0-000d3af4fa76"></div>{" "}
-        <Script src="https://mktdplp102cdn.azureedge.net/public/latest/js/form-loader.js?v=1.84.2007" />{" "}
+        <div data-form-block-id="0f899a43-b130-ed11-9db0-000d3af4fa76"></div>
         <div id="dAdutjjzRH-XWSHihc1yWqUg3WWGy6tTbskOGn_UPtlo"></div>
-        <Script src="https://mktdplp102cdn.azureedge.net/public/latest/js/ws-tracking.js?v=1.84.2007" />
         <div
           className="d365-mkt-config"
           style={{ display: "none" }}
