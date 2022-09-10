@@ -27,4 +27,12 @@ const FormByCustomHtml: React.FunctionComponent<
   );
 };
 
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      test: true,
+    },
+  };
+};
+
 export default FormByCustomHtml;
