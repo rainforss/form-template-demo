@@ -19,6 +19,7 @@ const FormByDesignerCanvas: React.FunctionComponent<
         bg="white"
         borderRadius="10px"
         p="2rem"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: `<div data-form-block-id="a1f005e6-b030-ed11-9db0-000d3af4fa76"></div>
         <div id="dKNNozqqrFm67u-5ar8Nb5AnkgQJQztxqb5LA8wbVhes"></div>
@@ -43,12 +44,12 @@ const FormByDesignerCanvas: React.FunctionComponent<
   );
 };
 
-export const getServerSideProps = async () => {
-  return {
-    props: {
-      test: true,
-    },
-  };
-};
+// export const getServerSideProps = async () => {
+//   return {
+//     props: {
+//       test: true,
+//     },
+//   };
+// };
 
 export default FormByDesignerCanvas;
