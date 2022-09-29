@@ -28,7 +28,27 @@ const FormByDesignerCanvas: React.FunctionComponent<
           style={{ display: "none" }}
           data-website-id="KNNozqqrFm67u-5ar8Nb5AnkgQJQztxqb5LA8wbVhes"
           data-hostname="92164b15708a49468ceb8389bcf7d220.svc.dynamics.com"
-        ></div>`,
+        ></div><script>MsCrmMkt.MsCrmFormLoader.on("afterFormLoad", () => {
+          const inputs = document.querySelectorAll(".lp-form-fieldInput");
+          inputs.forEach((input) => {
+            input.addEventListener("focus", () => {
+              input.previousElementSibling.style.transform = "translate(5px, -50%)";
+              input.previousElementSibling.style.background = "#fff";
+              input.previousElementSibling.style.fontSize = "10px";
+              input.previousElementSibling.style.padding = "5px";
+              input.previousElementSibling.style.zIndex = "10";
+            });
+            input.addEventListener("blur", (event) => {
+              if (!event.target.value) {
+                input.previousElementSibling.style.transform = "translate(0, 0)";
+                input.previousElementSibling.style.background = "transparent";
+                input.previousElementSibling.style.fontSize = "16px";
+                input.previousElementSibling.style.padding = "12px 15px";
+                input.previousElementSibling.style.zIndex = "0";
+              }
+            });
+          });
+        });</script>`,
         }}
       >
         {/* <div data-form-block-id="a1f005e6-b030-ed11-9db0-000d3af4fa76"></div>
