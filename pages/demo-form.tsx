@@ -1,5 +1,4 @@
 import { Center, Box } from "@chakra-ui/react";
-import Script from "next/script";
 import * as React from "react";
 
 interface IDemoFormProps {}
