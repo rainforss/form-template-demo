@@ -107,36 +107,33 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
               my="1rem"
               isRequired
             />
-            {props.values.firstname && (
-              <TextInput
-                id="lastname"
-                name="lastname"
-                label="Last Name"
-                type="text"
-                my="1rem"
-                isRequired
-              />
-            )}
-            {props.values.lastname && (
-              <TextInput
-                id="emailaddress1"
-                name="emailaddress1"
-                label="E-Mail Address"
-                type="email"
-                my="1rem"
-                isRequired
-              />
-            )}
-            {props.values.emailaddress1 && (
-              <TextInput
-                id="telephone1"
-                name="telephone1"
-                label="Phone Number"
-                type="tel"
-                my="1rem"
-                isRequired
-              />
-            )}
+            <TextInput
+              id="lastname"
+              name="lastname"
+              label="Last Name"
+              type="text"
+              my="1rem"
+              display={props.values.firstname ? "initial" : "none"}
+              isRequired
+            />
+            <TextInput
+              id="emailaddress1"
+              name="emailaddress1"
+              label="E-Mail Address"
+              type="email"
+              my="1rem"
+              display={props.values.lastname ? "initial" : "none"}
+              isRequired
+            />
+            <TextInput
+              id="telephone1"
+              name="telephone1"
+              label="Phone Number"
+              type="tel"
+              my="1rem"
+              display={props.values.emailaddress1 ? "initial" : "none"}
+              isRequired
+            />
             <RadioInput
               id="bsi_membertype"
               name="bsi_membertype"
