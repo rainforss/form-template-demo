@@ -31,16 +31,15 @@ const PurchaseForm: React.FunctionComponent<IPurchaseFormProps> = (props) => {
 
   return (
     <Formik
-      initialValues={{ amount: totalAmount.toString() }}
+      initialValues={{ amount: "0" }}
       onSubmit={async (values, actions) => {
         actions.setSubmitting(true);
         setTotalAmount(() => parseInt(values.amount));
+        await track_msdynmkt_test(parseInt(values.amount));
         alert(`Your purchasing amount is ${values.amount}`);
         actions.setSubmitting(false);
       }}
       onReset={async (values, actions) => {
-        await track_msdynmkt_test(parseInt(values.amount));
-        actions.setValues({ amount: "0" });
         setTotalAmount(() => 0);
       }}
     >
