@@ -14,17 +14,17 @@ const PurchaseForm: React.FunctionComponent<IPurchaseFormProps> = (props) => {
 
   const track_msdynmkt_test = async (amount: number) => {
     await (window["msdynmkt" as any] as any).setUser({
-      authId: "95c8013d-bcfb-4986-999e-c73e79d8be6b",
+      authId: "ce70624d-f489-49fc-862f-15999e545cdf",
     }); // ID, e-mail or phone number - see instructions
     await (window["msdynmkt" as any] as any).trackEvent({
-      name: "msdynmkt_doubleopt_ininitiated", //Trigger title: Test
+      name: "msdynmkt_doubleopt_ininitiation", //Trigger title: Test
       ingestionKey:
-        "03f9833e415547d1ba1927136e50c8e7-2c6b926b-6cad-40bc-8deb-2741510efb06-7059",
+        "ea333410c4424ba8862fafa6468f4094-8bd86c66-69dd-4c5b-a7f2-936a3c0c6524-7928",
       version: "1.0.0",
       // To learn more about the event properties below, please see the documentation on  To learn more about the event properties below, please see the documentation on for custom triggers.
       properties: {
         category: amount,
-        bindingid: `contact/95c8013d-bcfb-4986-999e-c73e79d8be6b`,
+        bindingid: `contact/ce70624d-f489-49fc-862f-15999e545cdf`,
       },
     });
   };

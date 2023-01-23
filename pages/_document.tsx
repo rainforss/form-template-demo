@@ -21,7 +21,7 @@ export default function Document() {
                 src: "https://download.pi.dynamics.com/sdk/web/msei-0.js",
                 name: "msdynmkt",
                 cfg: {
-                    ingestionKey:"03f9833e415547d1ba1927136e50c8e7-2c6b926b-6cad-40bc-8deb-2741510efb06-7059"
+                    ingestionKey:"ea333410c4424ba8862fafa6468f4094-8bd86c66-69dd-4c5b-a7f2-936a3c0c6524-7928"
                 }
             });`}
         </Script>
