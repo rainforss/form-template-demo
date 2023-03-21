@@ -52,15 +52,15 @@ const FormByDesignerCanvas: React.FunctionComponent<
           data-website-id="KNNozqqrFm67u-5ar8Nb5AnkgQJQztxqb5LA8wbVhes"
           data-hostname="92164b15708a49468ceb8389bcf7d220.svc.dynamics.com"
         ></div> */}
-        <div data-form-block-id="0f899a43-b130-ed11-9db0-000d3af4fa76"></div>
-        <div id="dAdutjjzRH-XWSHihc1yWqUg3WWGy6tTbskOGn_UPtlo"></div>
-        <div
-          className="d365-mkt-config"
-          style={{ display: "none" }}
-          data-website-id="AdutjjzRH-XWSHihc1yWqUg3WWGy6tTbskOGn_UPtlo"
-          data-hostname="92164b15708a49468ceb8389bcf7d220.svc.dynamics.com"
-        ></div>
       </Box>
+      <div data-form-block-id="0f899a43-b130-ed11-9db0-000d3af4fa76"></div>
+      <div id="dAdutjjzRH-XWSHihc1yWqUg3WWGy6tTbskOGn_UPtlo"></div>
+      <div
+        className="d365-mkt-config"
+        style={{ display: "none" }}
+        data-website-id="AdutjjzRH-XWSHihc1yWqUg3WWGy6tTbskOGn_UPtlo"
+        data-hostname="92164b15708a49468ceb8389bcf7d220.svc.dynamics.com"
+      ></div>
     </Center>
   );
 };
@@ -72,5 +72,13 @@ const FormByDesignerCanvas: React.FunctionComponent<
 //     },
 //   };
 // };
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      test: true,
+    },
+  };
+};
 
 export default FormByDesignerCanvas;
