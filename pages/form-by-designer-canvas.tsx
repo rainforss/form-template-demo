@@ -21,14 +21,7 @@ const FormByDesignerCanvas: React.FunctionComponent<
         p="2rem"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: `<div data-form-block-id="a1f005e6-b030-ed11-9db0-000d3af4fa76"></div>
-        <div id="dKNNozqqrFm67u-5ar8Nb5AnkgQJQztxqb5LA8wbVhes"></div>
-        <div
-          class="d365-mkt-config"
-          style={{ display: "none" }}
-          data-website-id="KNNozqqrFm67u-5ar8Nb5AnkgQJQztxqb5LA8wbVhes"
-          data-hostname="92164b15708a49468ceb8389bcf7d220.svc.dynamics.com"
-        ></div><script>MsCrmMkt.MsCrmFormLoader.on("afterFormLoad", () => {
+          __html: `<div data-form-block-id="96fe6225-44c3-ed11-83ff-0022482dbc5d"></div> <script src="https://mktdplp102cdn.azureedge.net/public/latest/js/form-loader.js?v=1.84.2007"></script> <div id="dAgiKKnEz7t28bfs6oiBl4FbTBlKyfOKNYuFwnqWk09g"></div><script src="https://mktdplp102cdn.azureedge.net/public/latest/js/ws-tracking.js?v=1.84.2007"></script><div class="d365-mkt-config" style="display:none" data-website-id="AgiKKnEz7t28bfs6oiBl4FbTBlKyfOKNYuFwnqWk09g" data-hostname="6ee2aedd3e0e48e3baa469db6f6b747e.svc.dynamics.com"></div><script>MsCrmMkt.MsCrmFormLoader.on("afterFormLoad", () => {
           const inputs = document.querySelectorAll(".lp-form-fieldInput");
           inputs.forEach((input) => {
             input.addEventListener("focus", () => {
