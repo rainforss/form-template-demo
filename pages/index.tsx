@@ -15,16 +15,7 @@ const Home: NextPage = () => {
       <Heading as="h1" textAlign="center" mb={64} fontSize="4rem" color="white">
         Marketing Demo
       </Heading>
-      {/* <Button
-        as="a"
-        href="/demo-form-capture"
-        variant="link"
-        py={4}
-        color="#ccc"
-        fontSize="1.25rem"
-      >
-        Form Capture
-      </Button> */}
+
       <Button
         as="a"
         href="/demo-form"
