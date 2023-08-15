@@ -21,15 +21,15 @@ export default function Document() {
                 src: "https://download.pi.dynamics.com/sdk/web/msei-0.js",
                 name: "msdynmkt",
                 cfg: {
-                    ingestionKey:"ea333410c4424ba8862fafa6468f4094-8bd86c66-69dd-4c5b-a7f2-936a3c0c6524-7928"
+                    ingestionKey:"52dd670be1004fe2bde2380e40c40997-a961e04a-6d71-443a-9a89-028baa6b8aa2-7442"
                 }
             });`}
         </Script>
         <div
           className="d365-mkt-config"
           style={{ display: "none" }}
-          data-website-id="ChSPZufhxuKY7ZVuvGwVVm5t7r3_UptQ-FbsB_LJvis"
-          data-hostname="53b5d92930b045c68a07d11ed0e50c9c.svc.dynamics.com"
+          data-website-id="1cIZMCPTSA4UCePGonwQmBq63TaqKkrbRvVn5ALR-hY"
+          data-hostname="9fe898b4fbf2478ebd936aa588e47059.svc.dynamics.com"
         >
           {" "}
         </div>

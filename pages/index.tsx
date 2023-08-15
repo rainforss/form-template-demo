@@ -13,9 +13,9 @@ const Home: NextPage = () => {
       bg="linear-gradient(to top right, #548D9A 0%, #404040 100%)"
     >
       <Heading as="h1" textAlign="center" mb={64} fontSize="4rem" color="white">
-        Marketing Form Demo
+        Marketing Demo
       </Heading>
-      <Button
+      {/* <Button
         as="a"
         href="/demo-form-capture"
         variant="link"
@@ -24,36 +24,26 @@ const Home: NextPage = () => {
         fontSize="1.25rem"
       >
         Form Capture
-      </Button>
+      </Button> */}
       <Button
         as="a"
-        href="/form-by-designer-canvas"
+        href="/demo-form"
         variant="link"
         py={4}
         color="#ccc"
         fontSize="1.25rem"
       >
-        Designer Canvas Form
+        Marketing Form
       </Button>
       <Button
         as="a"
-        href="/form-by-custom-html"
+        href="/demo-real-time"
         variant="link"
         py={4}
         color="#ccc"
         fontSize="1.25rem"
       >
-        Custom HTML/CSS Form
-      </Button>
-      <Button
-        as="a"
-        href="/form-by-custom-designer-control"
-        variant="link"
-        py={4}
-        color="#ccc"
-        fontSize="1.25rem"
-      >
-        Custom Designer Control Form
+        Online Purchase
       </Button>
     </Box>
   );
