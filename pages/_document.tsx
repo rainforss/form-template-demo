@@ -25,11 +25,11 @@ export default function Document() {
                 }
             });`}
         </Script>
-        <script
+        <Script
           src="https://www.google.com/recaptcha/api.js"
           async
           defer
-        ></script>
+        ></Script>
         <div
           className="d365-mkt-config"
           style={{ display: "none" }}
