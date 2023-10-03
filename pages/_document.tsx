@@ -27,8 +27,7 @@ export default function Document() {
         </Script>
         <Script
           src="https://www.google.com/recaptcha/api.js"
-          async
-          defer
+          strategy="beforeInteractive"
         ></Script>
         <div
           className="d365-mkt-config"
