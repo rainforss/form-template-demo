@@ -6,12 +6,11 @@ interface IDemoFormProps {}
 const DemoForm: React.FunctionComponent<IDemoFormProps> = () => {
   return (
     <Center
-      h="100vh"
       w="100%"
       bg="linear-gradient(to top right, #548D9A 0%, #404040 100%)"
     >
-      <Box w="60%" h="80vh" bg="white" borderRadius="10px" p="2rem">
-        <div data-form-block-id="f5d16753-0e62-ee11-be6e-00224825b9dd"></div>
+      <Box w="60%" h="fit-content" bg="white" borderRadius="10px" p="2rem">
+        <div data-form-block-id="7fe71819-ea62-ee11-be6e-00224825b9dd"></div>
         <div id="dkWcCr2cBRe1rwuY37vTJuSbgiPiZp4_SQBuhApKiLt4"></div>
         <div
           className="d365-mkt-config"
