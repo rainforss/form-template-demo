@@ -14,7 +14,7 @@ interface IRadioInputProps extends ChakraProps {
   id: string;
   name: string;
   label: string;
-  options: Array<{ value: string | number; label: string }>;
+  options: Array<{ value: string | undefined; label: string }>;
   isRequired?: boolean;
   isEditing?: boolean;
   alignment?: "row" | "column";

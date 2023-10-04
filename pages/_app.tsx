@@ -6,6 +6,7 @@ import { Barlow_Condensed } from "@next/font/google";
 const barlow = Barlow_Condensed({
   weight: ["400", "700", "900"],
   style: ["normal", "italic"],
+  subsets: ["latin"],
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
