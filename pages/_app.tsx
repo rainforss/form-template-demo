@@ -1,12 +1,27 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
+import { Barlow_Condensed } from "@next/font/google";
+
+const barlow = Barlow_Condensed({
+  weight: ["400", "700", "900"],
+  style: ["normal", "italic"],
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <>
+      <style jsx global>
+        {`
+          html {
+            font-family: ${barlow.style.fontFamily};
+          }
+        `}
+      </style>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </>
   );
 }
 
