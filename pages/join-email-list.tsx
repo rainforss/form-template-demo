@@ -14,7 +14,7 @@ const DemoForm: React.FunctionComponent<IDemoFormProps> = () => {
         h="fit-content"
         bg="#efeff4"
         borderRadius="10px"
-        p="2rem"
+        p="10px"
       >
         <div data-form-block-id="882ef3ec-1c62-ee11-be6e-00224825b9dd"></div>
         <div id="dkWcCr2cBRe1rwuY37vTJuSbgiPiZp4_SQBuhApKiLt4"></div>
