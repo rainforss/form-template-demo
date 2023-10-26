@@ -137,7 +137,7 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
         ).value = document.referrer;
         (
           document.querySelector(
-            "[data-editorblocktype='d365-marketing-form-placeholder' > button"
+            "div[data-editorblocktype='d365-marketing-form-placeholder'] > button"
           ) as HTMLButtonElement
         ).click();
 
