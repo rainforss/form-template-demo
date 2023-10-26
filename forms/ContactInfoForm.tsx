@@ -82,13 +82,17 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
           isClosable: true,
           duration: 3000,
         });
-        document.addEventListener("d365mkt_afterformsubmit", (e: any) => {
-          console.log(e.detail);
-          d365FormRes = e.detail.successful;
-        });
-        document.addEventListener("d365mkt_formsubmit", (e: any) => {
-          console.log(e.detail);
-        });
+        document
+          .querySelector("form.marketingForm")
+          ?.addEventListener("d365mkt_afterformsubmit", (e: any) => {
+            console.log(e.detail);
+            d365FormRes = e.detail.successful;
+          });
+        document
+          .querySelector("form.marketingForm")
+          ?.addEventListener("d365mkt_formsubmit", (e: any) => {
+            console.log(e.detail);
+          });
 
         (
           document.querySelector(
