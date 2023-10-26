@@ -178,7 +178,6 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
               label="Last Name"
               type="text"
               my="1rem"
-              display={props.values.firstname ? "initial" : "none"}
               isRequired
             />
             <TextInput
@@ -187,7 +186,6 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
               label="E-Mail Address"
               type="email"
               my="1rem"
-              display={props.values.lastname ? "initial" : "none"}
               isRequired
             />
             <TextInput
@@ -196,7 +194,6 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
               label="Phone Number"
               type="tel"
               my="1rem"
-              display={props.values.emailaddress1 ? "initial" : "none"}
               isRequired
             />
             <TextInput
@@ -205,7 +202,6 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
               label="City"
               type="text"
               my="1rem"
-              display={props.values.address1_city ? "initial" : "none"}
               isRequired
             />
             <TextInput
@@ -214,7 +210,6 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
               label="State"
               my="1rem"
               isRequired
-              display={props.values.address1_state ? "initial" : "none"}
               type="text"
             />
             <TextInput
@@ -223,16 +218,13 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
               label="Equipment Interested In"
               my="1rem"
               isRequired
-              display={
-                props.values.rdo_equipmentinterestedin ? "initial" : "none"
-              }
               type="text"
             />
             <TextAreaInput
               id="description"
               name="description"
               label="Message"
-              display={props.values.description ? "initial" : "none"}
+              my="1rem"
             />
             <Button
               type="submit"
