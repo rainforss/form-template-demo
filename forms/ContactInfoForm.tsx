@@ -64,8 +64,12 @@ export class ContactInfoValue {
 }
 
 const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+  let D365FormSubmissionRes: any;
   React.useEffect(() => {
-    document.addEventListener("d365mkt-afterformsubmit", (e: any) => {});
+    document.addEventListener("d365mkt-afterformsubmit", (e: any) => {
+      D365FormSubmissionRes = e.detail.successful;
+    });
   }, []);
 
   const toast = useToast();
@@ -124,8 +128,17 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
             "div[data-editorblocktype='SubmitButton'] > button"
           ) as HTMLButtonElement
         ).click();
-        await actions.submitForm();
-
+        await sleep(1500);
+        if (!D365FormSubmissionRes) {
+          actions.setSubmitting(false);
+          return toast({
+            status: "error",
+            title: "Submission Failed",
+            description: "Failed to submit your response, please try again.",
+            isClosable: true,
+            duration: 3000,
+          });
+        }
         actions.setSubmitting(false);
         toast({
           status: "success",
