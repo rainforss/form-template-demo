@@ -83,20 +83,13 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
           duration: 3000,
         });
         document.addEventListener("d365mkt_afterformsubmit", (e: any) => {
+          console.log(e.detail);
           d365FormRes = e.detail.successful;
         });
         document.addEventListener("d365mkt_formsubmit", (e: any) => {
           console.log(e.detail);
         });
-        if (!d365FormRes) {
-          return toast({
-            status: "error",
-            title: "Submission Failed",
-            description: "Failed to submit your response, please try again.",
-            isClosable: true,
-            duration: 3000,
-          });
-        }
+
         (
           document.querySelector(
             "[data-targetproperty='firstname'] > input"
@@ -143,6 +136,15 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
           ) as HTMLInputElement
         ).value = document.referrer;
         (document.querySelector(".marketingForm") as HTMLFormElement).submit();
+        if (!d365FormRes) {
+          return toast({
+            status: "error",
+            title: "Submission Failed",
+            description: "Failed to submit your response, please try again.",
+            isClosable: true,
+            duration: 3000,
+          });
+        }
         await actions.submitForm();
         actions.setSubmitting(false);
         toast({
