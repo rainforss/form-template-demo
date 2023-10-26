@@ -66,13 +66,8 @@ export class ContactInfoValue {
 const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
   let d365FormRes: any;
   React.useEffect(() => {
-    window.addEventListener("d365mkt-afterformsubmit", (e: any) => {
-      console.log(e.detail);
+    document.addEventListener("d365mkt-afterformsubmit", (e: any) => {
       d365FormRes = e.detail.successful;
-    });
-    console.log("added event listener");
-    window.addEventListener("d365mkt-formsubmit", (e: any) => {
-      console.log(e.detail);
     });
   }, []);
 
@@ -82,15 +77,6 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
       initialValues={new ContactInfoValue()}
       onSubmit={async (values, actions) => {
         actions.setSubmitting(true);
-        toast({
-          status: "warning",
-          title: "Update in progress",
-          description:
-            "Your contact information is being updated, please wait...",
-          isClosable: true,
-          duration: 3000,
-        });
-
         (
           document.querySelector(
             "[data-targetproperty='firstname'] > input"
@@ -141,17 +127,8 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
             "div[data-editorblocktype='SubmitButton'] > button"
           ) as HTMLButtonElement
         ).click();
-        setTimeout(() => {}, 1500);
-        if (!d365FormRes) {
-          return toast({
-            status: "error",
-            title: "Submission Failed",
-            description: "Failed to submit your response, please try again.",
-            isClosable: true,
-            duration: 3000,
-          });
-        }
         await actions.submitForm();
+
         actions.setSubmitting(false);
         toast({
           status: "success",
