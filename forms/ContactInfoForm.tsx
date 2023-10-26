@@ -70,6 +70,7 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
       console.log(e.detail);
       d365FormRes = e.detail.successful;
     });
+    console.log("added event listener");
     window.addEventListener("d365mkt_formsubmit", (e: any) => {
       console.log(e.detail);
     });
