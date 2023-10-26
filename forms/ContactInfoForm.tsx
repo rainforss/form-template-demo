@@ -66,17 +66,13 @@ export class ContactInfoValue {
 const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
   let d365FormRes: any;
   React.useEffect(() => {
-    document
-      .querySelector("form.marketingForm")
-      ?.addEventListener("d365mkt_afterformsubmit", (e: any) => {
-        console.log(e.detail);
-        d365FormRes = e.detail.successful;
-      });
-    document
-      .querySelector("form.marketingForm")
-      ?.addEventListener("d365mkt_formsubmit", (e: any) => {
-        console.log(e.detail);
-      });
+    window.addEventListener("d365mkt_afterformsubmit", (e: any) => {
+      console.log(e.detail);
+      d365FormRes = e.detail.successful;
+    });
+    window.addEventListener("d365mkt_formsubmit", (e: any) => {
+      console.log(e.detail);
+    });
   }, []);
   const submit = async (values: ContactInfoValue) => {
     console.log(values);
