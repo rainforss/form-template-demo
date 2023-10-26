@@ -19,7 +19,7 @@ const DemoForm: React.FunctionComponent<IDemoFormProps> = () => {
       >
         <ContactInfoForm />
       </Box>
-      <Box display="none">
+      <Box>
         <div
           data-form-id="d8fd5d51-cf6e-ee11-8df0-00224825b19c"
           data-form-api-url="https://public-usa.mkt.dynamics.com/api/v1.0/orgs/5dd0fa48-823b-ee11-94d2-000d3a106937/landingpageforms"
