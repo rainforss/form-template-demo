@@ -66,18 +66,16 @@ export class ContactInfoValue {
 const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
   let d365FormRes: any;
   React.useEffect(() => {
-    window.addEventListener("d365mkt_afterformsubmit", (e: any) => {
+    window.addEventListener("d365mkt-afterformsubmit", (e: any) => {
       console.log(e.detail);
       d365FormRes = e.detail.successful;
     });
     console.log("added event listener");
-    window.addEventListener("d365mkt_formsubmit", (e: any) => {
+    window.addEventListener("d365mkt-formsubmit", (e: any) => {
       console.log(e.detail);
     });
   }, []);
-  const submit = async (values: ContactInfoValue) => {
-    console.log(values);
-  };
+
   const toast = useToast();
   return (
     <Formik
