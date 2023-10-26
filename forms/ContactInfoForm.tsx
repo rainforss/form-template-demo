@@ -64,11 +64,8 @@ export class ContactInfoValue {
 }
 
 const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
-  let d365FormRes: any;
   React.useEffect(() => {
-    document.addEventListener("d365mkt-afterformsubmit", (e: any) => {
-      d365FormRes = e.detail.successful;
-    });
+    document.addEventListener("d365mkt-afterformsubmit", (e: any) => {});
   }, []);
 
   const toast = useToast();
