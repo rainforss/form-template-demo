@@ -127,7 +127,7 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
         ).value = values.rdo_equipmentinterestedin;
         (
           document.querySelector(
-            "[data-targetproperty='description'] > input"
+            "[data-targetproperty='description'] > textarea"
           ) as HTMLInputElement
         ).value = values.description;
         (
