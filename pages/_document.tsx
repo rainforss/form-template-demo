@@ -13,7 +13,7 @@ export default function Document() {
           strategy="beforeInteractive"
         />
         <Script
-          src="https://mktdplp102cdn.azureedge.net/public/latest/js/ws-tracking.js?v=1.84.2007"
+          src="https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/usa/FormLoader/FormLoader.bundle.js"
           strategy="beforeInteractive"
         />
         <Script id="d365-trigger" strategy="afterInteractive">

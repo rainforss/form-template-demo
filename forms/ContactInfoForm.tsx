@@ -5,6 +5,7 @@ import RadioInput from "../components/RadioInput";
 import TextInput from "../components/TextInput";
 import configs from "../crin-config.json";
 import CheckboxInput from "../components/CheckboxInput";
+import TextAreaInput from "../components/TextAreaInput";
 
 export interface Member {
   contactid: string;
@@ -56,8 +57,10 @@ export class ContactInfoValue {
   lastname: string = "";
   emailaddress1: string = "";
   telephone1: string = "";
-  bsi_membertype: string = "";
-  donotbulkemail: boolean = false;
+  address1_city: string = "";
+  address1_state: string = "";
+  rdo_equipmentinterestedin: string = "";
+  description: string = "";
 }
 
 const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
@@ -69,6 +72,7 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
     <Formik
       initialValues={new ContactInfoValue()}
       onSubmit={async (values, actions) => {
+        let d365FormRes;
         actions.setSubmitting(true);
         toast({
           status: "warning",
@@ -78,7 +82,68 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
           isClosable: true,
           duration: 3000,
         });
-        await submit(values);
+        document.addEventListener("d365mkt_afterformsubmit", (e: any) => {
+          d365FormRes = e.detail.successful;
+        });
+        document.addEventListener("d365mkt_formsubmit", (e: any) => {
+          console.log(e.detail);
+        });
+        if (!d365FormRes) {
+          return toast({
+            status: "error",
+            title: "Submission Failed",
+            description: "Failed to submit your response, please try again.",
+            isClosable: true,
+            duration: 3000,
+          });
+        }
+        (
+          document.querySelector(
+            "[data-targetproperty='firstname'] > input"
+          ) as HTMLInputElement
+        ).value = values.firstname;
+        (
+          document.querySelector(
+            "[data-targetproperty='lastname'] > input"
+          ) as HTMLInputElement
+        ).value = values.lastname;
+        (
+          document.querySelector(
+            "[data-targetproperty='emailaddress1'] > input"
+          ) as HTMLInputElement
+        ).value = values.emailaddress1;
+        (
+          document.querySelector(
+            "[data-targetproperty='telephone1'] > input"
+          ) as HTMLInputElement
+        ).value = values.telephone1;
+        (
+          document.querySelector(
+            "[data-targetproperty='address1_city'] > input"
+          ) as HTMLInputElement
+        ).value = values.address1_city;
+        (
+          document.querySelector(
+            "[data-targetproperty='address1_stateorprovince'] > input"
+          ) as HTMLInputElement
+        ).value = values.address1_state;
+        (
+          document.querySelector(
+            "[data-targetproperty='rdo_equipmentinterestedin'] > input"
+          ) as HTMLInputElement
+        ).value = values.rdo_equipmentinterestedin;
+        (
+          document.querySelector(
+            "[data-targetproperty='description'] > input"
+          ) as HTMLInputElement
+        ).value = values.description;
+        (
+          document.querySelector(
+            "[data-targetproperty='rdo_referrerpageurl'] > input"
+          ) as HTMLInputElement
+        ).value = document.referrer;
+        (document.querySelector(".marketingForm") as HTMLFormElement).submit();
+        await actions.submitForm();
         actions.setSubmitting(false);
         toast({
           status: "success",
@@ -134,20 +199,40 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
               display={props.values.emailaddress1 ? "initial" : "none"}
               isRequired
             />
-            <RadioInput
-              id="bsi_membertype"
-              name="bsi_membertype"
-              label="Member Type"
-              options={configs.membertypes}
-              alignment="row"
+            <TextInput
+              id="address1_city"
+              name="address1_city"
+              label="City"
+              type="text"
+              my="1rem"
+              display={props.values.address1_city ? "initial" : "none"}
+              isRequired
+            />
+            <TextInput
+              id="address1_state"
+              name="address1_state"
+              label="State"
               my="1rem"
               isRequired
-              isEditing
+              display={props.values.address1_state ? "initial" : "none"}
+              type="text"
             />
-            <CheckboxInput
-              id="donotbulkemail"
-              name="donotbulkemail"
-              label="I agree to receive email communications from CRIN, keeping me informed about upcoming events and opportunities. I understand that I can unsubscribe at any time."
+            <TextInput
+              id="rdo_equipmentinterestedin"
+              name="rdo_equipmentinterestedin"
+              label="Equipment Interested In"
+              my="1rem"
+              isRequired
+              display={
+                props.values.rdo_equipmentinterestedin ? "initial" : "none"
+              }
+              type="text"
+            />
+            <TextAreaInput
+              id="description"
+              name="description"
+              label="Message"
+              display={props.values.description ? "initial" : "none"}
             />
             <Button
               type="submit"
