@@ -135,6 +135,11 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
             "[data-targetproperty='rdo_referrerpageurl'] > input"
           ) as HTMLInputElement
         ).value = document.referrer;
+        document
+          .querySelector("#d365-marketing-form-placeholder > div > form")
+          ?.addEventListener("submit", (e) => {
+            e.preventDefault();
+          });
         (document.querySelector(".marketingForm") as HTMLFormElement).submit();
         if (!d365FormRes) {
           return toast({

@@ -21,11 +21,6 @@ const DemoForm: React.FunctionComponent<IDemoFormProps> = () => {
           "https://assets-usa.mkt.dynamics.com/5dd0fa48-823b-ee11-94d2-000d3a106937/digitalassets/forms/d8fd5d51-cf6e-ee11-8df0-00224825b19c"
         )
       );
-    document
-      .querySelector("#d365-marketing-form-placeholder > div > form")
-      ?.addEventListener("submit", (e) => {
-        e.preventDefault();
-      });
   }, []);
   return (
     <Center
