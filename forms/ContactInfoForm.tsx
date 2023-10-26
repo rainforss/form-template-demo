@@ -141,7 +141,7 @@ const ContactInfoForm: React.FunctionComponent<IContactInfoFormProps> = () => {
             "div[data-editorblocktype='SubmitButton'] > button"
           ) as HTMLButtonElement
         ).click();
-
+        setTimeout(() => {}, 1500);
         if (!d365FormRes) {
           return toast({
             status: "error",
