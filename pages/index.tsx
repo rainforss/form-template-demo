@@ -28,7 +28,7 @@ const Home: NextPage = () => {
       </Button>
       <Button
         as="a"
-        href="/request-a-quote"
+        href="/request-a-quote#d365mkt-nocache"
         variant="link"
         py={4}
         color="#ccc"
