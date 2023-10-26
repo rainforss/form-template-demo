@@ -36,7 +36,7 @@ const DemoForm: React.FunctionComponent<IDemoFormProps> = () => {
       >
         <ContactInfoForm />
       </Box>
-      <Box id="d365-marketing-form-placeholder"></Box>
+      <Box id="d365-marketing-form-placeholder" display="none"></Box>
     </Center>
   );
 };
