@@ -12,7 +12,6 @@ const Home: NextPage = () => {
   function track_msdynmkt_doubleopt_inconfirmed_033246949(
     ingestionKey: string
   ) {
-    console;
     const url = new URL(window.location.href);
     const contactId = url.searchParams.get("contactid");
     if (!contactId) {

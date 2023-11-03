@@ -5,6 +5,9 @@ type Data = {
   ingestionKey: string;
 };
 
-export default function handler(res: NextApiResponse<Data>) {
-  res.status(200).json({ ingestionKey: process.env.INSESTION_KEY! });
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) {
+  res.status(200).json({ ingestionKey: process.env.INGESTION_KEY! });
 }
