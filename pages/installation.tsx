@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 const Home: NextPage = () => {
   const searchParams = useSearchParams();
-  const surveyId = searchParams.get("surveyid");
+
   return (
     <Box
       w="100%"
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
       </Button>
       <Button
         as="a"
-        href={`https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=${surveyId}`}
+        href={`https://customervoice.microsoft.com/Pages/ResponsePage.aspx?${searchParams.toString()}`}
         variant="link"
         py={4}
         color="#ccc"
