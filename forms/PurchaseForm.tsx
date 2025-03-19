@@ -38,7 +38,11 @@ const PurchaseForm: React.FunctionComponent<IPurchaseFormProps> = (props) => {
 
   React.useEffect(() => {
     const onBeforeUnload = () => {
-      if (document.visibilityState !== "visible") {
+      if (
+        document.visibilityState !== "visible" &&
+        formRef.current.values.email &&
+        formRef.current.values.item
+      ) {
         console.log("refreshing");
         track_msdynmkt_test(
           formRef.current?.values.email || "",
