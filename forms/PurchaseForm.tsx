@@ -3,61 +3,71 @@ import { Formik, FormikProps, Form } from "formik";
 import * as React from "react";
 import CustomNumberInput from "../components/CustomNumberInput";
 import TextInput from "../components/TextInput";
+import { useRouter } from "next/router";
 
 interface IPurchaseFormProps {}
 
 interface PurchaseInfoValue {
-  amount: string;
   firstname: string;
   lastname: string;
+  item: string;
   email: string;
 }
 
 const PurchaseForm: React.FunctionComponent<IPurchaseFormProps> = (props) => {
-  const [totalAmount, setTotalAmount] = React.useState(0);
-
-  const track_msdynmkt_test = async (
-    email: string,
-    firstname: string,
-    lastname: string,
-    amount: number
-  ) => {
+  const [totalAmount, setTotalAmount] = React.useState("");
+  const router = useRouter();
+  const formRef = React.useRef<any>();
+  const track_msdynmkt_test = async (email: string, item: string) => {
     await (window["msdynmkt" as any] as any).setUser({
       authId: email,
     }); // ID, e-mail or phone number - see instructions
     await (window["msdynmkt" as any] as any).trackEvent({
-      name: "msdynmkt_onlinepurchase_184349180", //Trigger title: Test
+      name: "msdynmkt_cartabandoned_044137059", //Trigger title: Test
       ingestionKey:
-        "52dd670be1004fe2bde2380e40c40997-a961e04a-6d71-443a-9a89-028baa6b8aa2-7442",
+        "ea333410c4424ba8862fafa6468f4094-8bd86c66-69dd-4c5b-a7f2-936a3c0c6524-7928",
       version: "1.0.0",
       // To learn more about the event properties below, please see the documentation on  To learn more about the event properties below, please see the documentation on for custom triggers.
       properties: {
-        purchaseamount: amount,
-        firstname,
-        lastname,
+        cartcontent: item,
+        cartlink: window.location.href,
         bindingid: `contact/${email}`,
       },
     });
   };
 
+  React.useEffect(() => {
+    const onBeforeUnload = () => {
+      if (document.visibilityState !== "visible") {
+        console.log("refreshing");
+        track_msdynmkt_test(
+          formRef.current?.values.email || "",
+          formRef.current?.values.item || ""
+        );
+      }
+    };
+
+    document.addEventListener("visibilitychange", onBeforeUnload);
+
+    return () => {
+      document.removeEventListener("visibilitychange", onBeforeUnload);
+    };
+  }, []);
+
   return (
     <Formik
+      innerRef={formRef}
       initialValues={{
-        amount: "0",
+        item: "",
         firstname: "",
         lastname: "",
         email: "",
       }}
       onSubmit={async (values, actions) => {
         actions.setSubmitting(true);
-        setTotalAmount(() => parseInt(values.amount));
-        await track_msdynmkt_test(
-          values.email,
-          values.firstname,
-          values.lastname,
-          parseInt(values.amount)
-        );
-        alert(`Your purchasing amount is ${values.amount}`);
+        setTotalAmount(() => values.item);
+        await track_msdynmkt_test(values.email, values.item);
+        alert(`You are purchasing ${values.item}`);
         actions.setSubmitting(false);
       }}
     >
@@ -92,7 +102,7 @@ const PurchaseForm: React.FunctionComponent<IPurchaseFormProps> = (props) => {
               type="email"
               mb={4}
             />
-            <CustomNumberInput id="amount" name="amount" label="Amount" />
+            <TextInput id="item" name="item" label="Items" type="text" mb={4} />
             <Button
               type="submit"
               mr="auto"

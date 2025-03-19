@@ -18,23 +18,13 @@ const Home: NextPage = () => {
 
       <Button
         as="a"
-        href="/join-email-list"
-        variant="link"
-        py={4}
-        color="#ccc"
-        fontSize="1.25rem"
-      >
-        Join Email List
-      </Button>
-      <Button
-        as="a"
         href="/request-a-quote#d365mkt-nocache"
         variant="link"
         py={4}
         color="#ccc"
         fontSize="1.25rem"
       >
-        Request a Quote
+        Purchase Form
       </Button>
     </Box>
   );
